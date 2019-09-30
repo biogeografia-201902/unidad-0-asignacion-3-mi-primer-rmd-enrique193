@@ -22,6 +22,8 @@ rver <- as.numeric(paste(version$major, gsub('\\.','', version$minor), sep = '.'
 if(rver>=3.6){
   RNGkind(sample.kind = "Rounding") #Utiliza redondeo (compatibilidad entre versiones de R)
 }
+## Warning in RNGkind(sample.kind = "Rounding"): non-uniform 'Rounding'
+## sampler used
 set.seed(10) #Fija una tabla de números aleatorios
 df <- data.frame(
   usuario = gsub(' .*$', '', estudiantes),
@@ -78,8 +80,11 @@ Tarea 2. Abre la matriz de comunidad `mite` y despliégala
 **Tus respuestas en este bloque de código:**
 
 ``` r
-library() #Escribe el nombre del paquete al cual pertenece el conjunto de datos entre los paréntesis
-data() #Rellena el nombre del conjunto de datos entre los paréntesis
+library(vegan) #Escribe el nombre del paquete al cual pertenece el conjunto de datos entre los paréntesis
+## Loading required package: permute
+## Loading required package: lattice
+## This is vegan 2.5-5
+data(mite) #Rellena el nombre del conjunto de datos entre los paréntesis
   #Por delante del símbolo de almohadilla, escribe el nombre del objeto
 ```
 
@@ -97,7 +102,15 @@ Tarea 3. Filtra la matriz `mite`
 **Tus respuestas en este bloque de código:**
 
 ``` r
-mite[,] #Debes colocar tu número asignado dentro del corchete donde corresponda.
+mite[6,] #Debes colocar tu número asignado dentro del corchete donde corresponda.
+##   Brachy PHTH HPAV RARD SSTR Protopl MEGR MPRO TVIE HMIN HMIN2 NPRA TVEL
+## 6     19    7    5    9    3       2    3    0    0   20    16    2   13
+##   ONOV SUCT LCIL Oribatl1 Ceratoz1 PWIL Galumna1 Stgncrs2 HRUF Trhypch1
+## 6   38   39    3        5        0    1        1        8    0        4
+##   PPEL NCOR SLAT FSET Lepidzts Eupelops Miniglmn LRUG PLAG2 Ceratoz3
+## 6    0    1    0   10        0        0        0    0     0        0
+##   Oppiminu Trimalc2
+## 6        0        0
 ```
 
 -   **Usando la misma guía, ¿cuántos individuos hay de la especie de la columna número 2 en la fila (sitio) que corresponde con tú número?**
@@ -105,7 +118,8 @@ mite[,] #Debes colocar tu número asignado dentro del corchete donde corresponda
 **Tus respuestas en este bloque de código:**
 
 ``` r
-mite[,] #Debes colocar tu número en el índice de filas, y en el otro el de la columna. Lee la guía
+mite[6,2] #Debes colocar tu número en el índice de filas, y en el otro el de la columna. Lee la guía
+## [1] 7
 ```
 
 Tarea 4. Teje
